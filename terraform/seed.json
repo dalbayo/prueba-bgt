@@ -1,0 +1,231 @@
+{
+  "Producto": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "1" },
+          "nombre": { "S": "FPV_BTG_PACTUAL_RECAUDADORA" },
+          "tipoProducto": { "S": "FPV" },
+          "montoMinimo": { "N": "75000" },
+          "estado": { "S": "ACTIVO" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "2" },
+          "nombre": { "S": "FPV_BTG_PACTUAL_ECOPETROL" },
+          "tipoProducto": { "S": "FPV" },
+          "montoMinimo": { "N": "125000" },
+          "estado": { "S": "ACTIVO" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "3" },
+          "nombre": { "S": "DEUDAPRIVADA" },
+          "tipoProducto": { "S": "FIC" },
+          "montoMinimo": { "N": "50000" },
+          "estado": { "S": "ACTIVO" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "4" },
+          "nombre": { "S": "FDO-ACCIONES" },
+          "tipoProducto": { "S": "FIC" },
+          "montoMinimo": { "N": "250000" },
+          "estado": { "S": "ACTIVO" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "5" },
+          "nombre": { "S": "FPV_BTG_PACTUAL_DINAMICA" },
+          "tipoProducto": { "S": "FPV" },
+          "montoMinimo": { "N": "100000" },
+          "estado": { "S": "ACTIVO" }
+        }
+      }
+    }
+  ], 
+  "Sucursal": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "101" },
+          "nombre": { "S": "Sucursal Norte" },
+          "ciudad": { "S": "Bogotá" },
+          "disponibilidades": { "L": [
+            { "M": { "idProducto": { "N": "1" }, "stock": { "N": "50" } } },
+            { "M": { "idProducto": { "N": "2" }, "stock": { "N": "30" } } },
+            { "M": { "idProducto": { "N": "5" }, "stock": { "N": "20" } } }
+          ] }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "102" },
+          "nombre": { "S": "Sucursal Chicó" },
+          "ciudad": { "S": "Bogotá" },
+          "disponibilidades": { "L": [
+            { "M": { "idProducto": { "N": "1" }, "stock": { "N": "40" } } },
+            { "M": { "idProducto": { "N": "3" }, "stock": { "N": "25" } } },
+            { "M": { "idProducto": { "N": "4" }, "stock": { "N": "15" } } }
+          ] }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "103" },
+          "nombre": { "S": "Sucursal Sur" },
+          "ciudad": { "S": "Medellín" },
+          "disponibilidades": { "L": [
+            { "M": { "idProducto": { "N": "2" }, "stock": { "N": "35" } } },
+            { "M": { "idProducto": { "N": "3" }, "stock": { "N": "40" } } },
+            { "M": { "idProducto": { "N": "5" }, "stock": { "N": "10" } } }
+          ] }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "104" },
+          "nombre": { "S": "Sucursal Oriente" },
+          "ciudad": { "S": "Cali" },
+          "disponibilidades": { "L": [
+            { "M": { "idProducto": { "N": "1" }, "stock": { "N": "45" } } },
+            { "M": { "idProducto": { "N": "4" }, "stock": { "N": "20" } } },
+            { "M": { "idProducto": { "N": "5" }, "stock": { "N": "15" } } }
+          ] }
+        }
+      }
+    }
+  ],
+
+  "Cliente": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "1001" },
+          "nombre": { "S": "Daniel" },
+          "apellidos": { "S": "Barrera" },
+          "ciudad": { "S": "Duitama" },
+          "saldo": { "N": "500000" },
+          "correo": { "S": "daniel.barrera.adame@gmail.com" },
+          "telefono": { "S": "+573157071649" },
+          "envioNotificaicones": { "S": "CORREO-SMS" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "1002" },
+          "nombre": { "S": "Laura" },
+          "apellidos": { "S": "Gomez" },
+          "ciudad": { "S": "Bogotá" },
+          "saldo": { "N": "500000" },
+          "correo": { "S": "daniel.barrera.adame@gmail.com" },
+          "telefono": { "S": "+573157071649" },
+          "envioNotificaicones": { "S": "SMS" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "1003" },
+          "nombre": { "S": "Carlos" },
+          "apellidos": { "S": "Perez" },
+          "ciudad": { "S": "Medellín" },
+          "saldo": { "N": "500000" },
+          "correo": { "S": "daniel.barrera.adame@gmail.com" },
+          "telefono": { "S": "+573157071649" },
+          "envioNotificaicones": { "S": "SMS" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "1004" },
+          "nombre": { "S": "Ana" },
+          "apellidos": { "S": "Martinez" },
+          "ciudad": { "S": "Cali" },
+          "saldo": { "N": "500000" },
+          "correo": { "S": "daniel.barrera.adame@gmail.com" },
+          "telefono": { "S": "+573157071649" },
+          "envioNotificaicones": { "S": "CORREO" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "N": "1005" },
+          "nombre": { "S": "Jorge" },
+          "apellidos": { "S": "Ramirez" },
+          "ciudad": { "S": "Barranquilla" },
+          "saldo": { "N": "500000" },
+          "correo": { "S": "daniel.barrera.adame@gmail.com" },
+          "telefono": { "S": "+573157071649" },
+          "envioNotificaicones": { "S": "CORREO" }
+        }
+      }
+    }
+  ],
+  
+  "Usuario": [
+	  {
+		"PutRequest": {
+		  "Item": {
+			"id": { "N": "1" },
+			"username": { "S": "daniel" },
+			"password": { "S": "123456" },
+			"activo": { "BOOL": true },
+			"token": { "S": "token-abc-123" },
+			"expirydate": { "S": "2026-04-05T00:00:00" }
+		  }
+		}
+	  },
+	  {
+		"PutRequest": {
+		  "Item": {
+			"id": { "N": "2" },
+			"username": { "S": "laura" },
+			"password": { "S": "123456" },
+			"activo": { "BOOL": true },
+			"token": { "S": "token-def-456" },
+			"expirydate": { "S": "2026-04-05T00:00:00" }
+		  }
+		}
+	  },
+	  {
+		"PutRequest": {
+		  "Item": {
+			"id": { "N": "3" },
+			"username": { "S": "carlos" },
+			"password": { "S": "123456" },
+			"activo": { "BOOL": true },
+			"token": { "S": "token-ghi-789" },
+			"expirydate": { "S": "2026-04-05T00:00:00" }
+		  }
+		}
+	  }
+	]
+}
+
+ 

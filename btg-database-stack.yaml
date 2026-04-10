@@ -1,0 +1,101 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Infraestructura de Tablas DynamoDB para el sistema de Fondos BTG Pactual'
+
+Resources:
+  # 1. Tabla Cliente
+  TablaCliente:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Cliente
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: N
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+  # 2. Tabla Sucursal
+  TablaSucursal:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Sucursal
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: N
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+  # 3. Tabla Producto (Fondos)
+  TablaProducto:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Producto
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: N
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+  # 4. Tabla Inscripcion (Historial de suscripciones)
+  # PK: idCliente, SK: idProducto (Permite ver todos los fondos de un cliente)
+  TablaInscripcion:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Inscripcion
+      AttributeDefinitions:
+        - AttributeName: idCliente
+          AttributeType: N
+        - AttributeName: idProducto
+          AttributeType: N
+      KeySchema:
+        - AttributeName: idCliente
+          KeyType: HASH
+        - AttributeName: idProducto
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+
+  # 5. Tabla Disponibilidad (Relación Sucursal-Producto)
+  # PK: idSucursal, SK: idProducto
+  TablaDisponibilidad:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Disponibilidad
+      AttributeDefinitions:
+        - AttributeName: idSucursal
+          AttributeType: N
+        - AttributeName: idProducto
+          AttributeType: N
+      KeySchema:
+        - AttributeName: idSucursal
+          KeyType: HASH
+        - AttributeName: idProducto
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+
+  # 6. Tabla Visitan (Relación Sucursal-Cliente)
+  # PK: idSucursal, SK: idCliente
+  TablaVisitan:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Visitan
+      AttributeDefinitions:
+        - AttributeName: idSucursal
+          AttributeType: N
+        - AttributeName: idCliente
+          AttributeType: N
+      KeySchema:
+        - AttributeName: idSucursal
+          KeyType: HASH
+        - AttributeName: idCliente
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+
+Outputs:
+  StackRegion:
+    Description: "Región de despliegue"
+    Value: !Ref "AWS::Region"
