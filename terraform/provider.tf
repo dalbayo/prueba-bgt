@@ -19,11 +19,4 @@ provider "aws" {
     }
   }
 }
-
-resource "aws_s3_object" "app_jar" {
-  bucket = module.s3.bucket_id
-  key    = "app/btg-backend.jar"
-  source = "../target/btg-backend-0.0.1-SNAPSHOT.jar"
-
-  etag = filemd5("../target/btg-backend-0.0.1-SNAPSHOT.jar")
-}
+ 
