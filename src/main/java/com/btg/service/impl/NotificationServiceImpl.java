@@ -8,15 +8,12 @@ import lombok.extern.slf4j.Slf4j;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.PublishRequest;
 import software.amazon.awssdk.services.ses.SesClient;
-import software.amazon.awssdk.services.ses.model.SendEmailRequest;
-import software.amazon.awssdk.services.ses.SesClient;
+import software.amazon.awssdk.services.ses.model.SendEmailRequest; 
 import software.amazon.awssdk.services.ses.model.Body;
 import software.amazon.awssdk.services.ses.model.Content;
 import software.amazon.awssdk.services.ses.model.Destination;
-import software.amazon.awssdk.services.ses.model.Message;
-import software.amazon.awssdk.services.ses.model.SendEmailRequest;
-import software.amazon.awssdk.services.ses.model.SesException;
-import lombok.extern.slf4j.Slf4j;
+import software.amazon.awssdk.services.ses.model.Message; 
+import software.amazon.awssdk.services.ses.model.SesException; 
 
 @Service
 @Slf4j 
@@ -56,7 +53,8 @@ public class NotificationServiceImpl implements INotificationService {
     	}catch (Exception e) {
 			// TODO: handle exception
     	  	e.printStackTrace();
-            log.error("Error al enviar correo mediante AWS SES: {}", e.getMessage());
+            log.error("Error al enviar SMS mediante AWS SNS: {}", e.getMessage());
+
             // Aquí podrías lanzar una excepción personalizada de negocio si es crítico
        }
     }
@@ -100,9 +98,13 @@ public class NotificationServiceImpl implements INotificationService {
             System.out.println(o);
             System.out.println(o);
         } catch (SesException e) {
-        	e.printStackTrace();
-            log.error("Error al enviar correo mediante AWS SES: {}", e.awsErrorDetails().errorMessage());
-            // Aquí podrías lanzar una excepción personalizada de negocio si es crítico
-        }
+        	e.printStackTrace(); 
+        	 String errorMsg = (e.awsErrorDetails() != null)
+        	            ? e.awsErrorDetails().errorMessage()
+        	            : e.getMessage();
+ 
+        	    log.error("Error al enviar SMS mediante AWS SNS: {}", e.getMessage());
+
+        	}
     }
 }

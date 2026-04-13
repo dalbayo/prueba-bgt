@@ -70,3 +70,11 @@ resource "aws_security_group" "common_access" {
     Name = "btg-sg-ssh"
   }
 }
+
+resource "aws_s3_object" "app_jar" {
+  bucket = aws_s3_bucket.app_bucket.id
+  key    = "app/btg-backend-0.0.1-SNAPSHOT.jar"
+  source = "../target/btg-backend-0.0.1-SNAPSHOT.jar"
+
+  etag = filemd5("../target/btg-backend-0.0.1-SNAPSHOT.jar")
+}

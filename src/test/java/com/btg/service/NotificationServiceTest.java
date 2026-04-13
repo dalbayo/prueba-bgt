@@ -37,10 +37,10 @@ class NotificationServiceTest {
     @InjectMocks
     private NotificationServiceImpl notificationService;
 
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
+//    @BeforeEach
+//    void setUp() {
+//        MockitoAnnotations.openMocks(this);
+//    }
 
     @Test
     void debeEnviarSMSCuandoElTipoEsSMS() {
@@ -79,6 +79,7 @@ class NotificationServiceTest {
         notificationService.sendNotification(mensaje, correo, "EMAIL", "+573157071649");
 
         // Assert
+        
         verify(sesClient).sendEmail(captor.capture());
         SendEmailRequest request = captor.getValue();
         assertEquals(correo, request.destination().toAddresses().get(0));
@@ -96,7 +97,7 @@ class NotificationServiceTest {
                 .thenReturn(SendEmailResponse.builder().build());
 
         // Act
-        notificationService.sendNotification("Mensaje", "test@mail.com", "OTRO", "123");
+        notificationService.sendNotification("Mensaje", "daniel.barrera.adame@gmail.com", "OTRO", "123");
 
         // Assert
         verify(snsClient, times(1)).publish(any(PublishRequest.class));
@@ -112,7 +113,7 @@ class NotificationServiceTest {
 
         // Act & Assert
         assertDoesNotThrow(() -> 
-            notificationService.sendNotification("Msj", "test@mail.com", "EMAIL", "123")
+            notificationService.sendNotification("Msj", "daniel.barrera.adame@gmail.com", "EMAIL", "123")
         );
         verify(sesClient).sendEmail(any(SendEmailRequest.class));
     }
@@ -126,7 +127,7 @@ class NotificationServiceTest {
 
         // Act & Assert
         assertDoesNotThrow(() -> 
-            notificationService.sendNotification("Msj", "test@mail.com", "SMS", "123")
+            notificationService.sendNotification("Msj", "daniel.barrera.adame@gmail.com", "SMS", "123")
         );
         verify(snsClient).publish(any(PublishRequest.class));
     }
