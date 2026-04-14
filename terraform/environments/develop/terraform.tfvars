@@ -14,7 +14,8 @@ vpc = {
 }
 
 #   TU IP REAL (SOLO UNA VEZ)
-my_ip = "185.104.167.220/32"
+#my_ip = "185.104.167.220/32"
+my_ip = "0.0.0.0/0"
 
 region      = "us-east-1"
 key_name    = "btg-key"

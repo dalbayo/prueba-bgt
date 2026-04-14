@@ -32,19 +32,19 @@ public class TestController {
         Map<String, String> response = new HashMap<>();
         response.put("estado", "OK");
         response.put("mensaje", "Backend de BTG conectado exitosamente");
-        try {
-        	String mensaje = "Hola Daniel , tu suscripción al fondo  prueba producto  ha sido exitosa.";
-
-    			// El 'tipo' viene de la preferencia del usuario (EMAIL o SMS)
-            notificacionService.sendNotification(
-    			   mensaje, 
-    			   "daniel.barrera.adame@gmail.com", 
-    			   "SMS",// "CORREO-SMS",
-    			   "+573157071649"
-    			);
-        }catch (Exception e) {
-			// TODO: handle exception
-		}
+//        try {
+//        	String mensaje = "Hola Daniel , tu suscripción al fondo  prueba producto  ha sido exitosa.";
+//
+//    			// El 'tipo' viene de la preferencia del usuario (EMAIL o SMS)
+//            notificacionService.sendNotification(
+//    			   mensaje, 
+//    			   "daniel.barrera.adame@gmail.com", 
+//    			   "SMS",// "CORREO-SMS",
+//    			   "+573157071649"
+//    			);
+//        }catch (Exception e) {
+//			// TODO: handle exception
+//		}
         return response;
     }
 }

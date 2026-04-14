@@ -41,8 +41,8 @@ resource "aws_iam_role_policy" "app_policy" {
         Effect = "Allow"
         Action = [
           "s3:GetObject"
-        ]
-        Resource = "arn:aws:s3:::btg-app-artifacts-dev/*"
+        ],
+        Resource = "arn:aws:s3:::btg-terraform-statep-dev/*"
       },
 
       # (IMPORTANTE) Permite listar bucket
@@ -51,7 +51,7 @@ resource "aws_iam_role_policy" "app_policy" {
         Action = [
           "s3:ListBucket"
         ]
-        Resource = "arn:aws:s3:::btg-app-artifacts-dev"
+        Resource = "arn:aws:s3:::btg-terraform-statep-dev"
       }
     ]
   })

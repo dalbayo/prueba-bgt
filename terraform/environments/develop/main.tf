@@ -39,7 +39,7 @@ module "ec2" {
 module "s3" {
   source = "../../modules/s3"
 
-  bucket_name = "btg-app-artifacts-dev"
+  bucket_name = "btg-terraform-statep-dev"
   environment = var.environment
 
   jar_path = "../target/btg-backend-0.0.1-SNAPSHOT.jar"
